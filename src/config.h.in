@@ -1,0 +1,25 @@
+/* config.h.in.  Generated automatically from configure.in by autoheader.  */
+
+/* Define as the return type of signal handlers (int or void).  */
+#undef RETSIGTYPE
+
+/* Define if you have the ANSI C header files.  */
+#undef STDC_HEADERS
+
+/* Define if you have the <limits.h> header file.  */
+#undef HAVE_LIMITS_H
+
+/* Define if you have the <sys/ioctl.h> header file.  */
+#undef HAVE_SYS_IOCTL_H
+
+/* Define if you have the <unistd.h> header file.  */
+#undef HAVE_UNISTD_H
+
+/* Define if you have the pcap library (-lpcap).  */
+#undef HAVE_LIBPCAP
+
+/* Define if you have the pthread library (-lpthread).  */
+#undef HAVE_LIBPTHREAD
+
+/* Define if you have the slang library (-lslang).  */
+#undef HAVE_LIBSLANG

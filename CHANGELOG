@@ -1,0 +1,46 @@
+2001-09-11 Scott Parish <sRp@srparish.net>
+    * nettop now reads from the /etc/services and /etc/protocols files
+    * udp ports are now shown
+    * installation scripts improvements
+    * indented code
+
+2001-08-11 Scott Parish <sRp@srparish.net>
+    * added -r option allowing nettop to run off a file (ie tcpdump) 
+      instead of a device
+    * fixed bug causing divide by zero when delay is set to less then 1
+    * added command line help
+
+2001-03-07 Scott Parish <sRp@srparish.net>
+    * added nntp and pppoe types
+
+2001-02-20 Scott Parish <sRp@srparish.net>
+    * added bit/s code provided by Brian J. Murrel
+    * found and fixed sections of code using the wrong types
+
+2000-09-22 Scott Parish <sRp@srparish.net>
+    * generalized display code for alternative interfaces
+    * added text only mode
+    * added tree lines
+    * added filter option
+    * added count (num)
+    * removed stupid "made by scott..." banner on startup
+
+2000-09-21 Scott Parish <sRp@srparish.net>
+    * fixed problem which kept anything larger then mega "m" to not be used
+    * used 'f' for printing numbers instead of 'g'
+
+2000-09-20 Daniel Price <dp@rampant.org>
+    * Solaris 8 port; follow instructions in Makefile.
+    * changed q (quad) printf specifier to ll, which is portable.
+
+200-09-20 Scott Parish <sRp@srparish.net>
+    * fixed problem with numbers between 1000 and 1024 showing and messing
+      up columns
+    * fixed segfaults and no error report on startup with error
+    * spaced columns further apart for easier reading
+
+2000-02-14 Scott Parish <sRp@srparish.net>
+    * added ability to specify dev on the command line
+
+2000-02-13 Scott Parish <sRp@srparish.net>
+    * added reset

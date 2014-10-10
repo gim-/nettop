@@ -1,0 +1,68 @@
+VERSION = 0.2.3
+SHELL = /bin/sh
+srcdir = @srcdir@
+top_srcdir = @top_srcdir@
+
+CC = @CC@
+INCLUDES = -I $(srcdir) -I $(top_scr_dir) 
+CFLAGS = @CFLAGS@ @SLANGFLAGS@ -DVERSION=\"$(VERSION)\"
+LOCAL_C_FLAGS = @LOCAL_C_FLAGS@
+LIBS = @LIBS@
+CCFLAGS = $(LOCAL_CFLAGS) $(INCLUDES) $(CFLAGS)
+LDFLAGS = @LDFLAGS@ 
+prefix = @prefix@
+exec_prefix = @exec_prefix@
+bindir = $(exec_prefix)/bin
+
+SOURCES = nettop.c node.c node.h ent.h ent.c
+OBJS = nettop.o node.o ent.o
+
+.c.o:
+	$(CC) $(CCFLAGS) -c $<
+
+all: nettop
+
+transform=@program_transform_name@
+install: all
+	cp nettop $(bindir)/`echo nettop|sed '$(transform)'`
+
+
+uninstall:
+	rm -f $(bindir)/`echo nettop|sed '$(transform)'`
+
+nettop: $(OBJS)
+	$(CC) $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
+
+clean:
+	/bin/rm -f core *.o $(OBJS) nettop
+
+distclean: clean
+	/bin/rm -f Makefile config.h config.status config.cache \
+                   config.cache config.log 
+
+# auto run autoconf if change
+${srcdir}/configure: configure.in
+	cd ${srcdir} && autoconf
+
+# auto run autoheader if change
+${srcdir}/config.h.in: stamp-h.in
+${srcdir}/stamp-h.in: configure.in
+	cd ${srcdir} && autoheader
+	echo timestamp > ${srcdir}/stamp-h.in
+
+config.h: stamp-h
+
+stamp-h: config.h.in config.status
+	./config.status
+
+Makefile: Makefile.in config.status
+	./config.status
+
+config.status: configure
+	./config.status --recheck
+
+nettop.o: nettop.c
+
+node.o: node.c
+
+ent.o: ent.c
